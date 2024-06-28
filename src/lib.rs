@@ -175,13 +175,18 @@ impl Plugin for Gain {
         let peak_meter = self.peak_meter.clone();
 
         let size = (300, 450);
+
         #[cfg(debug_assertions)]
         let src = HTMLSource::URL("http://localhost:3000".to_owned());
+        #[cfg(debug_assertions)]
         let mut editor = WebViewEditor::new(src, size);
-        #[cfg(not(debug_assertions))]
-        let mut editor =
-            editor_with_frontend_dir("D:\\projects\\rust\\next-gain\\gui\\out".into(), size, None);
 
+        #[cfg(not(debug_assertions))]
+        let mut editor = nih_plug_webview::editors::editor_with_frontend_dir(
+            "D:\\projects\\rust\\next-gain\\gui\\out".into(),
+            size,
+            None,
+        );
         editor = editor
             .with_developer_mode(true)
             .with_keyboard_handler(move |event| {
