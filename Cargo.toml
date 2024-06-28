@@ -15,6 +15,7 @@ nih_plug = { git = "https://github.com/robbert-vdh/nih-plug.git", features = [
 nih_plug_webview = { git = "https://github.com/dvub/nih-plug-webview.git" }
 serde = { version = "1.0.152", features = ["derive"] }
 serde_json = "1.0"
+ts-rs = "9.0.1"
 
 [workspace]
 members = ["xtask"]
