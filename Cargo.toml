@@ -1,0 +1,20 @@
+[package]
+name = "next-gain"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+include_dir = "0.7.4"
+nih_plug = { git = "https://github.com/robbert-vdh/nih-plug.git", features = [
+    "assert_process_allocs",
+] }
+# Use dvub fork which includes frontend_dir 
+nih_plug_webview = { git = "https://github.com/dvub/nih-plug-webview.git" }
+serde = { version = "1.0.152", features = ["derive"] }
+serde_json = "1.0"
+
+[workspace]
+members = ["xtask"]
